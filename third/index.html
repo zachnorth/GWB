@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .myFormDiv {
+            padding: 100px 200px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        input {
+            height: 30px;
+            width: 250px;
+            margin-top: 20px;
+        }
+
+        button {
+            height: 36px;
+            width: 100px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sort A List Of Integers</h1>
+    <div class="myFormDiv">
+        <form id="myForm">
+            <label>
+                Enter a list of integers separated by commas <br>
+                <input type="text" name="list-of-integers" id="list-of-integers" placeholder="List of Integers">
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="integers">
+        <p class="largest" id="largest">Largest:  </p>
+        <p class="lowett" id="smallest">Smallest:  </p>
+    </div>
+</body>
+
+<script>
+
+    var form = document.getElementById('myForm');
+    function handleForm(event) { event.preventDefault(); }
+    form.addEventListener('submit', handleForm);
+    form.onsubmit = function() {
+
+        var listOfIntegers = document.getElementById('list-of-integers').value.split(', ');
+        
+        largest = listOfIntegers.reduce(findLargestNumber);
+        smallest = listOfIntegers.reduce(findSmallestNumber);
+
+        document.getElementById('largest').innerHTML = "Largest: " + largest
+        document.getElementById('smallest').innerHTML = "Smallest: " + smallest
+    }
+
+    function findLargestNumber(acc, next) {
+        return (acc > next) ? acc : next;
+    }
+
+    function findSmallestNumber(acc, next) {
+        return (acc < next) ? acc : next;
+    }
+</script>
+</html>

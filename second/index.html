@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        .images {
+            height: 256px;
+            width: 256px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery-image">
+            <div class="delete-image">x</div>
+            <img src="tom.jpg" class="images">
+        </div>
+        <div class="gallery-image">
+            <div class="delete-image">x</div>
+            <img src="jerry.jpg" class="images">
+        </div>
+    </div>
+</body>
+
+<script>
+    $('.delete-image').on('click', function() {
+        $(this).closest('.gallery-image').remove();
+    });
+</script>
+</html>
